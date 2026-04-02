@@ -1,194 +1,223 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-<title>MOONLIGHTS-CHALET</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>شالية أضواء القمر</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
-html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
-.mySlides {display:none}
-.w3-tag, .fa {cursor:pointer}
-.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+
+body {
+  margin:0;
+  font-family: 'Cairo', sans-serif;
+  background: #0f0f0f;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  width:100%;
+  background: rgba(0,0,0,0.85);
+  display:flex;
+  justify-content: space-around;
+  padding:15px;
+  z-index:1000;
+}
+
+.navbar a {
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.navbar a:hover {
+  color:#d4af37;
+}
+
+/* Hero */
+.hero {
+  height:100vh;
+  background:url('1.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  padding:20px;
+}
+
+.hero h1 {
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+.hero p {
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+/* Button */
+.btn {
+  background:#d4af37;
+  padding:12px 30px;
+  border:none;
+  color:black;
+  font-size:18px;
+  cursor:pointer;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.btn:hover {
+  background:#f1c40f;
+  transform:scale(1.05);
+}
+
+/* Section */
+.section {
+  padding:70px 20px;
+  text-align:center;
+}
+
+.section h2 {
+  margin-bottom:40px;
+  font-size:30px;
+}
+
+/* Cards */
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  gap:25px;
+  justify-content:center;
+}
+
+.card {
+  background:#1c1c1c;
+  border-radius:12px;
+  overflow:hidden;
+  width:300px;
+  transition:0.4s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+}
+
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card h3 {
+  padding:15px;
+}
+
+/* WhatsApp Floating */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  font-size:22px;
+  color:white;
+  text-decoration:none;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Footer */
+footer {
+  background:#111;
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+  font-size:14px;
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- Links (sit on top) -->
-<div class="w3-top">
-  <div class="w3-row w3-large w3-light-grey">
-  <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block">نبذة عن الشالية</a>
-    </div>
-   <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block"> </a>
-    </div>
-    
-    
-    <div class="w3-col s3">
-      <a href="#contact" class="w3-button w3-block">التواصل</a>
-    </div>
-      <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block">الصفحة الرئيسية </a>
-    </div>
-    
+<!-- Navbar -->
+<div class="navbar">
+  <a href="#">الرئيسية</a>
+  <a href="#about">عن الشالية</a>
+  <a href="#contact">التواصل</a>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>شالية أضواء القمر</h1>
+    <p>استمتع بأجمل الأوقات مع أجواء فاخرة وخصوصية تامة</p>
+    <a href="https://wa.me/962787015053">
+      <button class="btn">احجز الآن</button>
+    </a>
   </div>
 </div>
 
-<!-- Content -->
-<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+<!-- About -->
+<div class="section" id="about">
+  <h2>مميزات الشالية</h2>
 
-  <div class="w3-panel" style="text-align: center;">
-    <h1><b>MOONLIGHTS CHALET - شالية اضواء القمر</b></h1>
-        <a href="https://wa.me/962787015053" class="w3-button w3-block" style="background-color: #25D366; color: white; display: flex; align-items: center; justify-content: center; padding: 10px; border-radius: 5px; text-decoration: none;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 8px;">
-    للحجز
-</a>
+  <div class="cards">
+
+    <div class="card">
+      <img src="2.jpg">
+      <h3>بركة سباحة خاصة</h3>
+    </div>
+
+    <div class="card">
+      <img src="3.jpg">
+      <h3>جلسات خارجية فاخرة</h3>
+    </div>
+
+    <div class="card">
+      <img src="4.jpg">
+      <h3>إضاءة ليلية رائعة</h3>
+    </div>
+
+  </div>
 </div>
 
-  <!-- Slideshow -->
-  <div class="w3-container">
-    <div class="w3-display-container mySlides">
-      <img src="1.jpg" style="width:100%">
-      <div class="w3-display-topleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">البركة</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="2.jpg" style="width:100%">
-      <div class="w3-display-middle w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">الجلسات الخارجية</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="3.jpg" style="width:100%">
-      <div class="w3-display-topright w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">الشالية</span>
-      </div>
-    </div>
-
-    <!-- Slideshow next/previous buttons -->
-    <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
-      <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
-      <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
-    
-      <div class="w3-center">
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-      </div>
-    </div>
-  </div>
-  
-  </div>
-
-  <!-- Grid -->
-<!-- Grid -->
-  <div class="w3-row-padding" id="about">
-    <div class="w3-center w3-padding-64">
-      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">نبذة عن الشالية</span>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <div class="w3-card-4">
-        <img src="4.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>شالية اضواء القمر</h3>
-          <p class="w3-opacity">جلسات خارجية</p>
-          <p>يتمتع الشالية في الجلسات الخارجية المتنوعة وذات خصوصية تامة</p>
-        
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <div class="w3-card-4">
-        <img src="5.jpg" alt="Mike" style="width:100%">
-        <div class="w3-container">
-          <h3>شالية اضواء القمر</h3>
-          <p class="w3-opacity">جلسة بركة السباحة </p>
-          <p>جلسة رائعة ذات اطلالة على البركة للاستمتاع وراحة البال </p>
-         
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <div class="w3-card-4">
-        <img src="6.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>شالية اضواء القمر</h3>
-          <p class="w3-opacity">الاضاءة الخارجية </p>
-          <p>يتمتع الشالية بالاوان الاضاءة الرائعة التي تعكس البهجة والسرور </p>
-        
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Contact -->
-  <div class="w3-center w3-padding-64" id="contact">
-    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">التواصل للحجز</span>
-  </div>
-
-  <form class="w3-container" action="/action_page.php" target="_blank">
-
-   
-    <a href="https://wa.me/962787015053" class="w3-button w3-block" style="background-color: #25D366; color: white; display: flex; align-items: center; justify-content: center; padding: 10px; border-radius: 5px; text-decoration: none;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 8px;">
-    للحجز
-</a>
-  </form>
-
+<!-- Contact -->
+<div class="section" id="contact">
+  <h2>للحجز</h2>
+  <a href="https://wa.me/962787015053">
+    <button class="btn">تواصل واتساب</button>
+  </a>
 </div>
+
+<!-- Floating WhatsApp -->
+<a class="whatsapp" href="https://wa.me/962787015053">💬</a>
 
 <!-- Footer -->
-
-<footer class="w3-container w3-padding-32 w3-light-grey w3-center">
- 
-  <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>الذهاب الى الاعلى</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
- 
-  </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="PAKO" target="_blank" class="w3-hover-text-green">PAKO</a></p>
+<footer>
+  <p>© جميع الحقوق محفوظة - شالية أضواء القمر</p>
 </footer>
-
-
-<script>
-// Slideshow
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demodots");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length} ;
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " w3-white";
-}
-</script>
 
 </body>
 </html>

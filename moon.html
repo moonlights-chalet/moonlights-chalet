@@ -1,223 +1,1387 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07131c">
 
-<title>شالية أضواء القمر</title>
+  <title>شالية أضواء القمر | لحظات لا تُنسى</title>
+  <meta name="description" content="استمتعوا بالخصوصية والاسترخاء في شالية أضواء القمر، مع مسبح خاص وجلسات خارجية وإضاءة ساحرة.">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    :root {
+      --gold: #e5c47b;
+      --gold-light: #f5dfa5;
+      --dark: #07131c;
+      --dark2: #0c202c;
+      --white: #ffffff;
+      --muted: #b8c5cc;
+      --green: #25d366;
+    }
 
-body {
-  margin:0;
-  font-family: 'Cairo', sans-serif;
-  background: #0f0f0f;
-  color: white;
-  scroll-behavior: smooth;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  width:100%;
-  background: rgba(0,0,0,0.85);
-  display:flex;
-  justify-content: space-around;
-  padding:15px;
-  z-index:1000;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.navbar a {
-  color:white;
-  text-decoration:none;
-  font-size:18px;
-  transition:0.3s;
-}
+    body {
+      font-family: "Cairo", sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.8;
+    }
 
-.navbar a:hover {
-  color:#d4af37;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* Hero */
-.hero {
-  height:100vh;
-  background:url('1.jpg') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.hero::after {
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
-}
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
 
-.hero-content {
-  position:relative;
-  z-index:2;
-  padding:20px;
-}
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
 
-.hero h1 {
-  font-size:48px;
-  margin-bottom:15px;
-}
+    .gold {
+      color: var(--gold);
+    }
 
-.hero p {
-  font-size:20px;
-  margin-bottom:20px;
-}
+    .section {
+      padding: 85px 0;
+    }
 
-/* Button */
-.btn {
-  background:#d4af37;
-  padding:12px 30px;
-  border:none;
-  color:black;
-  font-size:18px;
-  cursor:pointer;
-  border-radius:6px;
-  transition:0.3s;
-}
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-.btn:hover {
-  background:#f1c40f;
-  transform:scale(1.05);
-}
+    .section-title h2 {
+      font-size: clamp(27px, 4vw, 40px);
+      margin-bottom: 10px;
+    }
 
-/* Section */
-.section {
-  padding:70px 20px;
-  text-align:center;
-}
+    .section-title p {
+      color: var(--muted);
+    }
 
-.section h2 {
-  margin-bottom:40px;
-  font-size:30px;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 25px;
+      border: 0;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #15202a;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .25s;
+    }
 
-/* Cards */
-.cards {
-  display:flex;
-  flex-wrap:wrap;
-  gap:25px;
-  justify-content:center;
-}
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px #e5c47b30;
+    }
 
-.card {
-  background:#1c1c1c;
-  border-radius:12px;
-  overflow:hidden;
-  width:300px;
-  transition:0.4s;
-}
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
 
-.card:hover {
-  transform:translateY(-10px);
-}
+    /* =========================
+       Navigation
+    ========================= */
 
-.card img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #07131cf2;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #ffffff12;
+    }
 
-.card h3 {
-  padding:15px;
-}
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-/* WhatsApp Floating */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50%;
-  font-size:22px;
-  color:white;
-  text-decoration:none;
-  box-shadow:0 0 10px rgba(0,0,0,0.5);
-}
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gold);
+      white-space: nowrap;
+    }
 
-/* Footer */
-footer {
-  background:#111;
-  text-align:center;
-  padding:25px;
-  margin-top:30px;
-  font-size:14px;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      list-style: none;
+    }
 
-</style>
+    .nav-links a:not(.btn) {
+      color: #e2e8eb;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid #ffffff30;
+      color: white;
+      border-radius: 9px;
+      padding: 6px 12px;
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, #07131cdd, #07131c75),
+        url("pool-main.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      padding: 80px 0 45px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #e2e8eb;
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       Gallery داخل الواجهة
+    ========================= */
+
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 42px;
+      max-width: 850px;
+    }
+
+    .gallery-photo {
+      position: relative;
+      height: 145px;
+      overflow: hidden;
+      border-radius: 15px;
+      border: 1px solid #ffffff30;
+      cursor: pointer;
+      background: #12232e;
+    }
+
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .gallery-photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-photo span {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: 8px 12px;
+      background: linear-gradient(transparent, #000c);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       Highlights
+    ========================= */
+
+    .highlights {
+      background: var(--dark2);
+      padding: 28px 0;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .highlight {
+      padding: 10px;
+    }
+
+    .highlight .symbol {
+      color: var(--gold);
+      font-size: 28px;
+      margin-bottom: 7px;
+    }
+
+    .highlight h3 {
+      font-size: 16px;
+    }
+
+    .highlight p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       About
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid #ffffff18;
+    }
+
+    .about-text h2 {
+      font-size: 35px;
+      margin-bottom: 18px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    /* =========================
+       Features
+    ========================= */
+
+    .features {
+      background: var(--dark2);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #102632;
+      padding: 27px;
+      border: 1px solid #ffffff10;
+      border-radius: 18px;
+      transition: .25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: #e5c47b70;
+    }
+
+    .feature-card .symbol {
+      font-size: 30px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       Booking
+    ========================= */
+
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .booking-info {
+      background: linear-gradient(145deg, #152e3b, #0c1c26);
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #ffffff12;
+    }
+
+    .booking-info h3 {
+      color: var(--gold);
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .booking-info p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .booking-form {
+      background: #10232e;
+      border: 1px solid #ffffff12;
+      padding: 30px;
+      border-radius: 22px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 17px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 14px;
+      color: #e0e7eb;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: #07151e;
+      color: white;
+      border: 1px solid #ffffff25;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    /* =========================
+       Contact
+    ========================= */
+
+    .contact {
+      background:
+        linear-gradient(#07131ce8, #07131ce8),
+        url("night.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      padding: 28px 0;
+      background: #040c12;
+      border-top: 1px solid #ffffff12;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       Floating WhatsApp
+    ========================= */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      left: 22px;
+      z-index: 200;
+      width: 58px;
+      height: 58px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      font-size: 29px;
+      box-shadow: 0 5px 25px #0005;
+      transition: .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================
+       Lightbox
+    ========================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: #000e;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 85vh;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       Reveal animations
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s, transform .7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media (max-width: 850px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        right: 0;
+        left: 0;
+        padding: 20px 5%;
+        background: #07131c;
+        border-bottom: 1px solid #ffffff20;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links .btn {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 75px 0 40px;
+      }
+
+      .about-grid,
+      .booking-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 330px;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-photo {
+        height: 125px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .booking-form,
+      .booking-info {
+        padding: 22px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-  <a href="#">الرئيسية</a>
-  <a href="#about">عن الشالية</a>
-  <a href="#contact">التواصل</a>
-</div>
+  <!-- =========================
+       Navigation
+  ========================= -->
 
-<!-- Hero -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>شالية أضواء القمر</h1>
-    <p>استمتع بأجمل الأوقات مع أجواء فاخرة وخصوصية تامة</p>
-    <a href="https://wa.me/962787015053">
-      <button class="btn">احجز الآن</button>
-    </a>
-  </div>
-</div>
+  <header class="navbar">
+    <div class="container nav-inner">
 
-<!-- About -->
-<div class="section" id="about">
-  <h2>مميزات الشالية</h2>
+      <a href="#home" class="logo">☾ أضواء القمر</a>
 
-  <div class="cards">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="فتح القائمة"
+        aria-expanded="false">
+        ☰
+      </button>
 
-    <div class="card">
-      <img src="2.jpg">
-         <h3>شالية اضواء القمر</h3>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">عن الشالية</a></li>
+          <li><a href="#features">المميزات</a></li>
+          <li><a href="#booking">طلب حجز</a></li>
+
+          <!-- تواصل معنا: واتساب مباشرة -->
+          <li>
+            <a
+              href="https://wa.me/962787015053"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer">
+              تواصل معنا
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
     </div>
+  </header>
 
-    <div class="card">
-      <img src="3.jpg">
-      <h3>شالية اضواء القمر</h3>
+  <main>
+
+    <!-- =========================
+         Hero + Gallery
+    ========================= -->
+
+    <section class="hero" id="home">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            مرحباً بكم في عالم الاسترخاء
+          </div>
+
+          <h1>
+            شالية <span class="gold">أضواء القمر</span><br>
+            لحظات لا تُنسى
+          </h1>
+
+          <p>
+            عيشوا أجواء الخصوصية والراحة، واستمتعوا بمسبح خاص
+            وإضاءة ساحرة وجلسات تجمع الأحباب بأجمل الأوقات.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#booking" class="btn">
+              اطلب حجزك الآن
+            </a>
+
+            <a
+              href="https://wa.me/962787015053"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer">
+              تواصل معنا عبر واتساب
+            </a>
+
+          </div>
+
+          <!-- معرض الصور داخل الواجهة الرئيسية -->
+
+          <div class="hero-gallery">
+
+            <div class="gallery-photo" data-image="pool-main.jpg">
+              <img
+                src="pool-main.jpg"
+                alt="المسبح الخاص في شالية أضواء القمر"
+                loading="lazy">
+              <span>المسبح الخاص</span>
+            </div>
+
+            <div class="gallery-photo" data-image="outdoor.jpg">
+              <img
+                src="outdoor.jpg"
+                alt="الجلسات الخارجية"
+                loading="lazy">
+              <span>جلسات خارجية</span>
+            </div>
+
+            <div class="gallery-photo" data-image="bedroom.jpg">
+              <img
+                src="bedroom.jpg"
+                alt="غرف النوم"
+                loading="lazy">
+              <span>غرف النوم</span>
+            </div>
+
+            <div class="gallery-photo" data-image="kitchen.jpg">
+              <img
+                src="kitchen.jpg"
+                alt="مطبخ الشالية"
+                loading="lazy">
+              <span>مطبخ مجهز</span>
+            </div>
+
+            <div class="gallery-photo" data-image="waterfall.jpg">
+              <img
+                src="waterfall.jpg"
+                alt="شلال المسبح"
+                loading="lazy">
+              <span>شلال المسبح</span>
+            </div>
+
+            <div class="gallery-photo" data-image="night.jpg">
+              <img
+                src="night.jpg"
+                alt="الإضاءة الليلية"
+                loading="lazy">
+              <span>سحر الإضاءة الليلية</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Highlights
+    ========================= -->
+
+    <section class="highlights">
+      <div class="container highlight-grid">
+
+        <div class="highlight">
+          <div class="symbol">✦</div>
+          <h3>خصوصية وراحة</h3>
+          <p>أجواء خاصة لقضاء وقتكم</p>
+        </div>
+
+        <div class="highlight">
+          <div class="symbol">♨</div>
+          <h3>مسبح خاص</h3>
+          <p>أوقات ممتعة مع العائلة</p>
+        </div>
+
+        <div class="highlight">
+          <div class="symbol">☾</div>
+          <h3>إضاءة ساحرة</h3>
+          <p>أجواء مميزة ليلاً</p>
+        </div>
+
+        <div class="highlight">
+          <div class="symbol">♡</div>
+          <h3>ذكريات جميلة</h3>
+          <p>لحظات تستحق أن تعاش</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         About
+    ========================= -->
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <div class="about-image reveal">
+          <img
+            src="pool-main.jpg"
+            alt="شالية أضواء القمر">
+        </div>
+
+        <div class="about-text reveal">
+
+          <div class="eyebrow">اكتشفوا أجواءنا</div>
+
+          <h2>
+            راحتكم تبدأ من
+            <span class="gold">أضواء القمر</span>
+          </h2>
+
+          <p>
+            صُمم شالية أضواء القمر ليمنحكم تجربة تجمع بين
+            الراحة والخصوصية والأجواء الجميلة، سواء لقضاء
+            يوم عائلي أو مناسبة مميزة مع الأحباب.
+          </p>
+
+          <p>
+            استمتعوا بالمسبح والجلسات الخارجية والإضاءة
+            التي تضفي على المكان أجواءً ساحرة.
+          </p>
+
+          <a href="#booking" class="btn">
+            اطلب حجزك
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Features
+    ========================= -->
+
+    <section class="section features" id="features">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <div class="eyebrow">تفاصيل تصنع الفرق</div>
+          <h2>مميزات <span class="gold">الشالية</span></h2>
+          <p>كل ما تحتاجونه لقضاء أوقات مريحة ومميزة.</p>
+        </div>
+
+        <div class="feature-grid">
+
+          <article class="feature-card reveal">
+            <div class="symbol">♨</div>
+            <h3>مسبح خاص</h3>
+            <p>استمتعوا بأوقات ممتعة في أجواء من الخصوصية.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="symbol">✧</div>
+            <h3>إضاءة ثلاثية الأبعاد</h3>
+            <p>إضاءات تضيف لمسة جمالية للمكان في المساء.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="symbol">♧</div>
+            <h3>جلسات خارجية</h3>
+            <p>مساحات مريحة للجلوس والاستمتاع بالهواء الطلق.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="symbol">⌂</div>
+            <h3>ثلاث غرف نوم</h3>
+            <p>مساحات داخلية مناسبة للاسترخاء والراحة.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="symbol">♨</div>
+            <h3>مسبح للأطفال</h3>
+            <p>مساحة مخصصة للصغار ضمن مرافق الشالية.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="symbol">❀</div>
+            <h3>شلال وجلسات مميزة</h3>
+            <p>تفاصيل تضفي أجواء جميلة على يومكم.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Booking
+    ========================= -->
+
+    <section class="section" id="booking">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <div class="eyebrow">خطوتكم الأولى نحو يوم جميل</div>
+          <h2>طلب <span class="gold">حجز</span></h2>
+          <p>أرسلوا تفاصيل طلبكم عبر واتساب للتواصل والمتابعة.</p>
+        </div>
+
+        <div class="booking-wrap">
+
+          <div class="booking-info reveal">
+
+            <h3>أهلاً وسهلاً بكم</h3>
+
+            <p>
+              يسعدنا استقبال طلباتكم والإجابة عن استفساراتكم
+              بخصوص المواعيد وتفاصيل الحجز.
+            </p>
+
+            <p>
+              بعد إرسال الطلب عبر واتساب، يتم التواصل معكم
+              لتأكيد التفاصيل والتأكد من توفر الموعد.
+            </p>
+
+            <a
+              href="https://wa.me/962787015053"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer">
+              مراسلتنا مباشرة
+            </a>
+
+          </div>
+
+          <form class="booking-form reveal" id="bookingForm">
+
+            <div class="form-grid">
+
+              <div class="field">
+                <label for="fullName">الاسم الكامل</label>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  placeholder="اكتب اسمك"
+                  required>
+              </div>
+
+              <div class="field">
+                <label for="phone">رقم الهاتف</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="رقم التواصل"
+                  required>
+              </div>
+
+              <div class="field">
+                <label for="startDate">تاريخ الحجز</label>
+                <input
+                  id="startDate"
+                  name="startDate"
+                  type="date"
+                  required>
+              </div>
+
+              <div class="field">
+                <label for="period">الفترة المطلوبة</label>
+                <select id="period" name="period" required>
+                  <option value="">اختر الفترة</option>
+                  <option value="صباحية">صباحية</option>
+                  <option value="مسائية">مسائية</option>
+                  <option value="أخرى / أستفسر">أخرى / أستفسر</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="persons">عدد الأشخاص</label>
+                <input
+                  id="persons"
+                  name="persons"
+                  type="number"
+                  min="1"
+                  max="100"
+                  placeholder="عدد الأشخاص"
+                  required>
+              </div>
+
+              <div class="field">
+                <label for="occasion">المناسبة (اختياري)</label>
+                <input
+                  id="occasion"
+                  name="occasion"
+                  type="text"
+                  placeholder="مثلاً: طلعة عائلية">
+              </div>
+
+              <div class="field full">
+                <label for="notes">ملاحظات إضافية</label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  placeholder="اكتب أي تفاصيل إضافية..."></textarea>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn">
+              إرسال طلب الحجز عبر واتساب
+            </button>
+
+            <p class="form-note">
+              هذا نموذج لإرسال طلب الحجز فقط، ولا يؤكد توفر الموعد
+              أو إتمام الحجز تلقائياً.
+            </p>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Contact
+    ========================= -->
+
+    <section class="section contact" id="contact">
+      <div class="container reveal">
+
+        <div class="eyebrow">نحن بانتظاركم</div>
+
+        <h2>
+          جاهزين لقضاء
+          <span class="gold">أجمل الأوقات؟</span>
+        </h2>
+
+        <p>
+          تواصلوا معنا عبر واتساب للاستفسار عن المواعيد
+          وتفاصيل الحجز.
+        </p>
+
+        <a
+          href="https://wa.me/962787015053"
+          class="btn"
+          target="_blank"
+          rel="noopener noreferrer">
+          تواصل معنا عبر واتساب
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       Footer
+  ========================= -->
+
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year"></span>
+        شالية أضواء القمر — جميع الحقوق محفوظة
+      </p>
     </div>
+  </footer>
 
-    <div class="card">
-      <img src="4.jpg">
-         <h3>شالية اضواء القمر</h3>
-    </div>
+  <!-- =========================
+       Floating WhatsApp
+  ========================= -->
 
-  </div>
-</div>
-
-<!-- Contact -->
-<div class="section" id="contact">
-  <h2>للحجز</h2>
-  <a href="https://wa.me/962787015053">
-    <button class="btn">تواصل واتساب</button>
+  <a
+    href="https://wa.me/962787015053"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="تواصل معنا عبر واتساب">
+    ☎
   </a>
-</div>
 
-<!-- Floating WhatsApp -->
-<a class="whatsapp" href="https://wa.me/962787015053">💬</a>
+  <!-- =========================
+       Image Lightbox
+  ========================= -->
 
-<!-- Footer -->
-<footer>
-  <p>© جميع الحقوق محفوظة - شالية أضواء القمر</p>
-</footer>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      aria-label="إغلاق الصورة">
+      ×
+    </button>
+
+    <img
+      src=""
+      alt="صورة مكبرة من الشالية"
+      id="lightboxImage">
+
+  </div>
+
+  <!-- =========================
+       JavaScript
+  ========================= -->
+
+  <script>
+    /*
+      ضع رقم واتساب الشالية هنا.
+      مثال الصيغة الأردنية: 9627XXXXXXXX
+      بدون + أو مسافات.
+    */
+
+    const WHATSAPP_NUMBER = "962787015053";
+
+    /*
+      بناء رابط واتساب.
+      يُستخدم الرقم نفسه في جميع أزرار الموقع.
+    */
+
+    function getWhatsAppUrl(message = "") {
+      const baseUrl = "https://wa.me/" + WHATSAPP_NUMBER;
+
+      if (!message) {
+        return baseUrl;
+      }
+
+      return baseUrl + "?text=" + encodeURIComponent(message);
+    }
+
+    /*
+      تحديث روابط واتساب تلقائياً.
+      بذلك يكفي تغيير الرقم أعلاه مرة واحدة.
+    */
+
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
+      link.href = getWhatsAppUrl();
+    });
+
+    /*
+      قائمة الجوال.
+    */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    /*
+      تحديث السنة تلقائياً.
+    */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      منع اختيار تاريخ سابق.
+    */
+
+    const dateInput = document.getElementById("startDate");
+
+    const today = new Date();
+
+    const localToday = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0")
+    ].join("-");
+
+    dateInput.min = localToday;
+
+    /*
+      إرسال طلب الحجز إلى واتساب.
+    */
+
+    document.getElementById("bookingForm").addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        if (!this.reportValidity()) {
+          return;
+        }
+
+        const name =
+          document.getElementById("fullName").value.trim();
+
+        const phone =
+          document.getElementById("phone").value.trim();
+
+        const date =
+          document.getElementById("startDate").value;
+
+        const period =
+          document.getElementById("period").value;
+
+        const persons =
+          document.getElementById("persons").value;
+
+        const occasion =
+          document.getElementById("occasion").value.trim();
+
+        const notes =
+          document.getElementById("notes").value.trim();
+
+        const message =
+`السلام عليكم، أرغب بطلب حجز في شالية أضواء القمر 🌙
+
+الاسم: ${name}
+رقم الهاتف: ${phone}
+تاريخ الحجز: ${date}
+الفترة: ${period}
+عدد الأشخاص: ${persons}
+المناسبة: ${occasion || "غير محددة"}
+ملاحظات: ${notes || "لا يوجد"}
+
+يرجى التواصل معي لتأكيد توفر الموعد.`;
+
+        const whatsappUrl = getWhatsAppUrl(message);
+
+        window.open(
+          whatsappUrl,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
+    );
+
+    /*
+      تكبير الصور عند الضغط عليها.
+    */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+
+    document.querySelectorAll(".gallery-photo").forEach(photo => {
+
+      photo.addEventListener("click", () => {
+
+        lightboxImage.src = photo.dataset.image;
+
+        lightbox.classList.add("open");
+
+        lightbox.setAttribute("aria-hidden", "false");
+
+      });
+
+    });
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("open");
+
+      lightbox.setAttribute("aria-hidden", "true");
+
+      lightboxImage.src = "";
+
+    }
+
+    document.getElementById("lightboxClose")
+      .addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", event => {
+
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+
+    });
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+    });
+
+    /*
+      إظهار العناصر عند التمرير.
+    */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+
+      const observer = new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach(element => {
+        observer.observe(element);
+      });
+
+    } else {
+
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+
+    }
+  </script>
 
 </body>
 </html>
